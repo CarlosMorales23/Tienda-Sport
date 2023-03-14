@@ -9,7 +9,7 @@ import {
 import React from "react";
 import "./ProductCard.css";
 
-const ProductCard = ({title, price = "NO tiene precio", descripcion, stock,}) => {
+const ProductCard = ({title, price = "NO tiene precio", descripcion, stock, loguin}) => {
 
     const saludar = () => {
         console.log("hola");
@@ -22,7 +22,7 @@ const ProductCard = ({title, price = "NO tiene precio", descripcion, stock,}) =>
     return (
         <Card
             sx={{
-                maxWidth: 250,
+                maxWidth: 350,
                 maxHeigh: 200,
                 border: "3px solid black",
                 padding: 1,
@@ -52,8 +52,20 @@ const ProductCard = ({title, price = "NO tiene precio", descripcion, stock,}) =>
                     Saludar
                 </Button>
 
-                <Button variant="contained" size="small" onClick={()=>saludar2 ("juancito")}>
+                <Button
+                    variant="contained"
+                    size="small"
+                    onClick={() => saludar2("juancito")}
+                >
                     Saludar
+                </Button>
+
+                <Button
+                    variant="contained"
+                    size="small"
+                    onClick={loguin}
+                >
+                    Loguin
                 </Button>
             </CardActions>
         </Card>
