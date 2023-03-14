@@ -1,0 +1,20 @@
+.containerCartwidget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.contadorContainer{
+    width: 20px;
+    height: 20px;
+}
+
+.contador {
+    font-size: 22px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+

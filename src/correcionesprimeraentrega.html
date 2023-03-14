@@ -1,0 +1,44 @@
+
+Respecto a tu consulta de css lo que te estaba ocurriendo es que estabas poniendo asi:
+
+// import styles from "./ItemListPres.module.css";
+
+const ItemListPres = ({gretting}) => {
+
+return (
+<h1 className={"styles.titulo"}>{gretting}</h1>
+)
+}
+
+export default ItemListPres
+
+
+Cuando la forma correcta para que se renderice tu estilo sería así:
+
+import ItemListPres from "./ItemListPres";
+import styles from "./ItemListPres.module.css";
+const ItemListContainer = () => {
+return (
+<>
+    <ItemListPres className={styles.titulo} />
+</>
+);
+};
+
+export default ItemListContainer;
+
+
+Avisame si quedan dudas con el estilado y lo resolvemos!! 😊
+
+🙌 Un último detalle, esto es solo opcional en esta instancia y a tu elección, se puede pensar en implementar una
+librería de estilos si te interesa para estilar a medida que va creciendo el proyecto. Repito es solo opcional y solo si
+te interesa! Lo que decidas esta genial 🙌
+
+Si te interesa indagar por el lado de los frameworks de css te dejo un par opciones recomendadas para que puedas
+agregar:
+
+✔️ Material UI (El profe dio after sobre esto)
+✔️ React Bootstrap
+
+También podés considerar utilizar otras alternativas como Tailwind, Chakra UI o Bulma que son geniales y son muy usadas
+en el ámbito laboral!
