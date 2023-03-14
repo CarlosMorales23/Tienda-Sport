@@ -5,19 +5,19 @@ import NavbarPres from "./components/Navbar/NavbarPres/NavbarPres";
 
 function App() {
 
-    // const loguin= ()=>{
-    //     console.log("Ya ingrese")
-    // }
+    const onAdd = (cantidad) =>{
+        alert(`Se agrego al carrito ${cantidad} elementos`);
+    }
 
     return (
         <div className="App">
             <NavbarPres />
-            {/* <ItemListContainer saludo="Pepito Romero" />
-            <ProductCard title="Prodcuto #1" price="100$" descripcion="Este es el mejor producto" stock={true} loguin={loguin}/>
+            {/* <ItemListContainer saludo="Pepito Romero" /> */}
+            {/* <ProductCard title="Prodcuto #1" price="100$" descripcion="Este es el mejor producto" stock={true} loguin={loguin}/>
             <ProductCard title="Prodcuto #1" price="100$" descripcion="Este es el mejor producto" stock={false} />
             <ProductCard title="Prodcuto #1"  descripcion="Este es el mejor producto" stock={true} />
             <ProductCard title="Prodcuto #1" price="100$" descripcion="Este es el mejor producto" stock={true} /> */}
-            <ItemCount/>
+            <ItemCount stock={5} initial= {1} onAdd={onAdd}/>
         </div>
     )
 }
