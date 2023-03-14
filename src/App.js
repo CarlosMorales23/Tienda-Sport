@@ -5,9 +5,9 @@ import NavbarPres from "./components/Navbar/NavbarPres/NavbarPres";
 
 function App() {
 
-const onAdd = () =>{
-    console.log ("Se ejecuto onAdd")
-}
+    const onAdd = (cantidad) =>{
+        alert(`Se agrego al carrito ${cantidad} elementos`);
+    }
 
     return (
         <div className="App">

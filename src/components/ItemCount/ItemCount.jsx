@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 
 
-const ItemCount = (stock, initial, onAdd) => {
-    const [contador, setContador] = useState(0);
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [contador, setContador] = useState(initial);
 
     const sumar = () => {
         
@@ -16,7 +16,7 @@ const ItemCount = (stock, initial, onAdd) => {
     };
 
     const restar = () => {
-        if (contador > 0) {
+        if (contador > 1) {
             setContador(contador - 1);
         }
     };
@@ -32,7 +32,7 @@ const ItemCount = (stock, initial, onAdd) => {
                 <Button variant="contained" onClick={restar}>
                     Restar
                 </Button>
-                <Button variant="contained" onClick={onAdd}>
+                <Button variant="contained" onClick={()=>onAdd(contador)}>
                     Agregar
                 </Button>
             </Stack>
