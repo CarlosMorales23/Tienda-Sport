@@ -12,7 +12,9 @@ const ItemCount = () => {
     }
 
     const restar = () => {
-        setContador (contador -1)
+        if (contador >0){
+            setContador(contador - 1);
+        }
     }
 
     const setCero = () => {
