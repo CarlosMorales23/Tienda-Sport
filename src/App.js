@@ -2,14 +2,8 @@
 import FooterPres from "./components/Footer/FooterPres";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavbarPres from "./components/Navbar/NavbarPres/NavbarPres";
-// import ProductCard from "./components/ProductCard.jsx/ProductCard";
 
 function App() {
-
-    // const onAdd = (cantidad) =>{
-    //     alert(`Se agrego al carrito ${cantidad} elementos`);
-    // }
-
     return (
         <div className="App">
             <NavbarPres />
@@ -21,3 +15,7 @@ function App() {
 }
 
 export default App;
+
+    // const onAdd = (cantidad) =>{
+    //     alert(`Se agrego al carrito ${cantidad} elementos`);
+    // }
