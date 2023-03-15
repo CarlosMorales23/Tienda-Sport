@@ -1,6 +1,7 @@
-import { Button, Stack } from "@mui/material";
+// import { Button, Stack } from "@mui/material";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { products } from "../../productsMock";
 
 
 
@@ -10,7 +11,8 @@ const ItemListContainer = () => {
 
     useEffect ( ()=>{
         const productList = new Promise((resolve, reject)=>{
-            resolve ()
+            resolve (products)
+            // reject("No tienes autorización")
         })
 
         productList
@@ -18,11 +20,12 @@ const ItemListContainer = () => {
         .catch ((error) =>{console.log(error)})
     }, [])
 
+    console.log(items)
 
 
     return(
             <div>
-                <h1>hola</h1>
+                <h1>Item List -Item List Container</h1>
             </div>
     )
 
