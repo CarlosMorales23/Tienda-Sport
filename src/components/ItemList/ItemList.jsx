@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "../Item/Item";
 
-const ItemLis = ({items}) => {
+const ItemList = ({items}) => {
     return (
         <div style={{
             backgroundColor: "navy",
@@ -23,7 +23,7 @@ const ItemLis = ({items}) => {
     );
 };
 
-export default ItemLis;
+export default ItemList;
 
 
 // 1. Item. La info que llevara la tarjeta

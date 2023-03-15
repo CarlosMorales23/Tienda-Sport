@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { products } from "../../productsMock";
-import ItemLis from "../ItemList/ItemLis";
+import ItemList from "../ItemList/ItemList";
 
 
 
@@ -26,7 +26,7 @@ const ItemListContainer = () => {
 
     return(
             <div>
-                <ItemLis items={items}/>
+                <ItemList items={items}/>
             </div>
     )
 
