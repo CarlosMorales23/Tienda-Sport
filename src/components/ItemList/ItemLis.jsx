@@ -1,17 +1,22 @@
 import React from "react";
+import Item from "../Item/Item";
 
 const ItemLis = ({items}) => {
     return (
-        <div>
+        <div style={{
+            backgroundColor: "navy",
+            display: "flex",
+            width: "100%",
+            minHeight: "100vh",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            flexWrap: "wrap",
+        }
+        }>
             {
                 items.map( (element) =>{
 
-                    return <div key={element.id}>
-                        <img src={element.img} alt="" width={200} />
-                        <h2>{element.title}</h2>
-                        <h3>{element.price}</h3>
-                        <br />
-                    </div>
+                    return <Item key={element.id} element={element}/>
                 })
             }
         </div>
@@ -19,3 +24,8 @@ const ItemLis = ({items}) => {
 };
 
 export default ItemLis;
+
+
+// 1. Item. La info que llevara la tarjeta
+// 2. ItemList El agrupador de los item. Va dentro de la carpeta ItemListContaine. 
+// 3. async mock 
