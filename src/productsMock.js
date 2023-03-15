@@ -7,7 +7,7 @@ export const products = [
         stock: 2,
         description: "Estas son las mejores zapatillas",
         category: "deportivas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669326932/free-metcon-4-zapatillas-de-entrenamiento-TQMCZg_fvia3m.png"
+        img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
         id: 2,
@@ -16,16 +16,17 @@ export const products = [
         stock: 5,
         description: "Ultra livianas y cuentan con camara de aire",
         category: "deportivas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430010/foc364fsakkzmausrovn.jpg"
+        img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
         id: 3,
         title: "Puma",
         price: 19000,
         stock: 5,
-        description: "Las clasicas zapatillas que van para cualquier momento del dia",
+        description:
+            "Las clasicas zapatillas que van para cualquier momento del dia",
         category: "urbanas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430165/images_lujpmr.jpg"
+        img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
         id: 4,
@@ -34,6 +35,6 @@ export const products = [
         stock: 5,
         description: "Zapatillas de ultima generacion para el deporte",
         category: "urbanas",
-        img: "https://res.cloudinary.com/dnqfh2chg/image/upload/v1669430220/rtokwmt3j03bblbfhwhb.jpg"
-    }
-]
+        img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
+    },
+];

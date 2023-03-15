@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { products } from "../../productsMock";
+import ItemLis from "../ItemList/ItemLis";
 
 
 
@@ -25,7 +26,7 @@ const ItemListContainer = () => {
 
     return(
             <div>
-                <h1>Item List -Item List Container</h1>
+                <ItemLis items={items}/>
             </div>
     )
 
