@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 
 const ConsumiendoApis = () => {
-    // const [ post, setPosts] = useState ([])
+    const [ post, setPosts] = useState ([])
 
     //GET
 
-    // useEffect ( ()=>{
-    //     const getData= fetch("https://jsonplaceholder.typicode.com/posts")
+    useEffect ( ()=>{
+        const getData= fetch("https://jsonplaceholder.typicode.com/posts")
 
-    //     getData
-    //     .then(res => res.json())
-    //     .then(res => setPosts(res))
-    //     .catch( (err) => console.log("catch: ", err))
-    // }  , [] )
+        getData
+        .then(res => res.json())
+        .then(res => setPosts(res))
+        .catch( (err) => console.log("catch: ", err))
+    }  , [] )
 
     //POST
 
-    // useEffect ( ()=>{
-    //         const getData= fetch("https://jsonplaceholder.typicode.com/posts/2")
+    useEffect ( ()=>{
+            const getData= fetch("https://jsonplaceholder.typicode.com/posts/2")
 
-    //         getData
-    //         .then(res => res.json())
-    //         .then(res => setPosts(res))
-    //         .catch( (err) => console.log("catch: ", err))
-    // } , [])
+            getData
+            .then(res => res.json())
+            .then(res => setPosts(res))
+            .catch( (err) => console.log("catch: ", err))
+    } , [])
 
     //CREATE
 
@@ -44,8 +44,10 @@ const ConsumiendoApis = () => {
 
         createPost.then((res) => setIsCreated(true));
 
-        console.log(isCreated);
+        
     };
+
+    console.log(isCreated);
 
     return <div>
         <button onClick={crearPosts}> Crear Post</button>
