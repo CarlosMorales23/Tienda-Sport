@@ -1,6 +1,7 @@
 // import ItemCount from "./components/ItemCount/ItemCount";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 // import ConsumiendoApis from "./components/ConsumiendoApis/ConsumiendoApis";
 // import FooterPres from "./components/Footer/FooterPres";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
@@ -12,14 +13,14 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <NavbarPres/>
+                <NavbarPres />
                 <Routes>
-                    <Route path="/" element={<ItemListContainer/>} />
-                    <Route path="/cart" element={<Cart/>}/>
-                    <Route path="/loguin" element={<Loguin/>}/>
+                    <Route path="/" element={<ItemListContainer />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/loguin" element={<Loguin />} />
+                    <Route path="/ItemDetail/:id" element={<ItemDetailContainer />} />
 
-                    <Route path="*" element={<NotFound/>}/>
-
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         </div>
