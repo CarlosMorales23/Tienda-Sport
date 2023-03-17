@@ -15,12 +15,30 @@ function App() {
             <BrowserRouter>
                 <NavbarPres />
                 <Routes>
+                    {/* Ruta raiz */}
                     <Route path="/" element={<ItemListContainer />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/loguin" element={<Loguin />} />
-                    <Route path="/ItemDetail/:id" element={<ItemDetailContainer />} />
 
+                    {/* Ruta defecto */}
                     <Route path="*" element={<NotFound />} />
+
+                    {/* Ruta carrito */}
+                    <Route path="/cart" element={<Cart />} />
+
+                    {/* Ruta Loguin */}
+                    <Route path="/loguin" element={<Loguin />} />
+
+
+
+                    {/* Ruta Dinamica */}
+
+                    {/* DONDE CONSUMIRE RUTA DINAMICA???
+                    Ruta ItemDetail */}
+
+                    {/* Debo ir a ItemDetail e importar el hook "useParams", para poder rescatar el id */}
+                    <Route
+                        path="/ItemDetail/:id"
+                        element={<ItemDetailContainer />}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>
