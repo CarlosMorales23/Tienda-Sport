@@ -17,17 +17,16 @@ const ItemDetailContainer = () => {
     const productSelected = products.find((element) => element.id === Number(id))
     //ahora producSelect tendra el objeto del producto del id correspondiente
 
-
-
-
-
+    const onAdd= (cantidad) => {
+        console.log(`Se agrego el al carrito ${cantidad} productos`)
+    } 
 
     console.log(productSelected)
     return (
         <div>
             <h1>{productSelected.title}</h1>
             <img src={productSelected.img} alt="" />
-            <ItemCount />
+            <ItemCount stock={productSelected.stock} onAdd={onAdd}/>
         </div>
     );
 };

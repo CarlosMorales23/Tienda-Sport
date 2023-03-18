@@ -15,18 +15,15 @@ function App() {
             <BrowserRouter>
                 <NavbarPres />
                 <Routes>
-                    
                     <Route path="/" element={<ItemListContainer />} />
 
-                
+                    <Route path="/category/:categoryName" element={<ItemListContainer />} />
+
                     <Route path="*" element={<NotFound />} />
 
-                    
                     <Route path="/cart" element={<Cart />} />
 
-                    
                     <Route path="/loguin" element={<Loguin />} />
-
 
                     <Route
                         path="/ItemDetail/:id"

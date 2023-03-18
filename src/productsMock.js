@@ -6,7 +6,7 @@ export const products = [
         price: 15000,
         stock: 2,
         description: "Estas son las mejores zapatillas",
-        category: "deportivas",
+        category: "Futbol",
         img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
@@ -15,7 +15,7 @@ export const products = [
         price: 14500,
         stock: 5,
         description: "Ultra livianas y cuentan con camara de aire",
-        category: "deportivas",
+        category: "Futbol",
         img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
@@ -25,7 +25,7 @@ export const products = [
         stock: 5,
         description:
             "Las clasicas zapatillas que van para cualquier momento del dia",
-        category: "urbanas",
+        category: "Beisbol",
         img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
     {
@@ -34,7 +34,7 @@ export const products = [
         price: 17800,
         stock: 5,
         description: "Zapatillas de ultima generacion para el deporte",
-        category: "urbanas",
+        category: "Basket",
         img: "https://res.cloudinary.com/dybsirwia/image/upload/v1678631504/remera-de-argentina-adidas-entrenamiento-azul_mpo7ox.jpg",
     },
 ];
