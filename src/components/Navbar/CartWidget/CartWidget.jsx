@@ -13,6 +13,7 @@ const CartWidget = () => {
             <Link to="/cart">
                 <div className={styles.containerCartwidget}>
                     <div className={styles.contadorContainer}>
+                        {/* classname="bubble-counter" */}
                         <h3 className={styles.contador}>0</h3>
                     </div>
                     <div className={styles.carrito}>

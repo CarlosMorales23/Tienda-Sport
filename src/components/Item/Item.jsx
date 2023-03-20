@@ -11,13 +11,13 @@ import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
 
+
 const Item = ({element}) => {
     return (
-        <Card sx={{ width: 250, height: 320 }}>
+        <Card sx={{ width: 250, height: 415 }}>
             <CardMedia
-                sx={{ height: 140 }}
+                sx={{ width:140, height: 190  }}
                 image={element.img}
-                title="green iguana"
             />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
@@ -31,7 +31,6 @@ const Item = ({element}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-
                 <Link to={`/ItemDetail/${element.id}`}>
                     <Button size="small" variant="contained">
                         Ver Detalles

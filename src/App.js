@@ -11,27 +11,28 @@ import NotFound from "./components/NotFound/NotFound";
 
 function App() {
     return (
-        <div className="App">
-            <BrowserRouter>
-                <NavbarPres />
-                <Routes>
-                    <Route path="/" element={<ItemListContainer />} />
+        <BrowserRouter>
+            <NavbarPres />
+            <Routes>
+                <Route path="/" element={<ItemListContainer />} />
 
-                    <Route path="/category/:categoryName" element={<ItemListContainer />} />
+                <Route
+                    path="/category/:categoryName"
+                    element={<ItemListContainer />}
+                />
 
-                    <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
 
-                    <Route path="/cart" element={<Cart />} />
+                <Route path="/cart" element={<Cart />} />
 
-                    <Route path="/loguin" element={<Loguin />} />
+                <Route path="/loguin" element={<Loguin />} />
 
-                    <Route
-                        path="/ItemDetail/:id"
-                        element={<ItemDetailContainer />}
-                    />
-                </Routes>
-            </BrowserRouter>
-        </div>
+                <Route
+                    path="/ItemDetail/:id"
+                    element={<ItemDetailContainer />}
+                />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
