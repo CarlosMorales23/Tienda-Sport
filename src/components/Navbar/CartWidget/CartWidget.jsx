@@ -10,11 +10,16 @@ const CartWidget = () => {
 
     return (
         <div>
-            <Link to="/cart">
+            <Link to="/cart" style={{ textDecoration: "none" }}>
                 <div className={styles.containerCartwidget}>
                     <div className={styles.contadorContainer}>
                         {/* classname="bubble-counter" */}
-                        <h3 className={styles.contador}>0</h3>
+                        <h3
+                            className={styles.contador}
+                            style={{ textDecoration: "none" }}
+                        >
+                            0
+                        </h3>
                     </div>
                     <div className={styles.carrito}>
                         <ShoppingCartIcon sx={{ fontSize: 40 }} />

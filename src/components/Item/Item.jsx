@@ -15,10 +15,7 @@ import { Link } from "react-router-dom";
 const Item = ({element}) => {
     return (
         <Card sx={{ width: 250, height: 415 }}>
-            <CardMedia
-                sx={{ width:140, height: 190  }}
-                image={element.img}
-            />
+            <CardMedia sx={{ width: 140, height: 190 }} image={element.img} />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
                     {element.title}
@@ -31,14 +28,19 @@ const Item = ({element}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link to={`/Item/${element.id}`}>
-                    <Button size="small" variant="contained">
+                <Link
+                    to={`/Item/${element.id}`}
+                    style={{ textDecoration: "none" }}
+                >
+                    <Button
+                        size="small"
+                        variant="contained"
+                    >
                         Ver Detalles
                     </Button>
                 </Link>
             </CardActions>
         </Card>
-        
     );
 }
 export default Item;

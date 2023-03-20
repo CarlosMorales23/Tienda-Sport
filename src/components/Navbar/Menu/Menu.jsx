@@ -7,16 +7,16 @@ import {Link} from "react-router-dom"
 const Menu = () => {
     return (
         <Stack spacing={4} direction="row">
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
                 <Button variant="contained">Todas</Button>
             </Link>
-            <Link to="/category/Futbol">
+            <Link to="/category/Futbol" style={{ textDecoration: "none" }}>
                 <Button variant="contained">Futbol</Button>
             </Link>
-            <Link to="/category/Beisbol">
+            <Link to="/category/Beisbol" style={{ textDecoration: "none" }}>
                 <Button variant="contained">Beisbol</Button>
             </Link>
-            <Link to="/category/Basket">
+            <Link to="/category/Basket" style={{ textDecoration: "none" }}>
                 <Button variant="contained">Basket</Button>
             </Link>
         </Stack>
