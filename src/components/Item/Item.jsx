@@ -31,7 +31,7 @@ const Item = ({element}) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link to={`/ItemDetail/${element.id}`}>
+                <Link to={`/Item/${element.id}`}>
                     <Button size="small" variant="contained">
                         Ver Detalles
                     </Button>
