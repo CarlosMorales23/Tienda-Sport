@@ -17,3 +17,8 @@
     align-items: center;
 
 }
+
+.imagen{
+    width: fit-content;
+    height: fit-content;
+}
