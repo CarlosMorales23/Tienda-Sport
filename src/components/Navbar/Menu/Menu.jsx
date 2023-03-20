@@ -7,10 +7,18 @@ import {Link} from "react-router-dom"
 const Menu = () => {
     return (
         <Stack spacing={4} direction="row">
-            <Link to= "/" variant="contained">Todas</Link>
-            <Link to="/category/Futbol" variant="contained">Futbol</Link>
-            <Link to="/category/Beisbol" variant="contained">Beisbol</Link>
-            <Link to="/category/Basket" variant="contained">Basket</Link>
+            <Link to="/">
+                <Button variant="contained">Todas</Button>
+            </Link>
+            <Link to="/category/Futbol">
+                <Button variant="contained">Futbol</Button>
+            </Link>
+            <Link to="/category/Beisbol">
+                <Button variant="contained">Beisbol</Button>
+            </Link>
+            <Link to="/category/Basket">
+                <Button variant="contained">Basket</Button>
+            </Link>
         </Stack>
     );
 };
