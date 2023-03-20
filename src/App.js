@@ -24,7 +24,7 @@ function App() {
                     <Route path="/loguin" element={<Loguin />} />
 
                     <Route
-                        path="/ItemDetail/:id"
+                        path="/Item/:id"
                         element={<ItemDetailContainer />}
                     />
                 </Routes>
