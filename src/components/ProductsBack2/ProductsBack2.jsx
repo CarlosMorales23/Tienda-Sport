@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-import { Padding } from "@mui/icons-material";
-import { padding } from "@mui/system";
+
 
 const ProductsBack2 = () => {
 
@@ -21,12 +20,33 @@ const ProductsBack2 = () => {
 
     console.log(products)
 
+    const newProduct = {
+        title: "Boca",
+        img: "https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/c/a/camiseta-de-boca-adidas-alternativa-blanca-100020gl4171001-1.jpg",
+    };
+
+    const addproduct= () =>{
+        axios.post("http://localhost:5000/products", newProduct)
+    }
+
+
+
 
     return (
         <div>
             <h1>Products desde el Back2</h1>
 
-            <div style={{width: "100%", display: "flex", gap: "30px", justifyContent: "space-around", alignItems:"center", minHeight: "90 vh", padding: "30px" }}>
+            <div
+                style={{
+                    width: "100%",
+                    display: "flex",
+                    gap: "30px",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    minHeight: "90 vh",
+                    padding: "30px",
+                }}
+            >
                 {products.map((e) => {
                     return (
                         <div
@@ -36,6 +56,7 @@ const ProductsBack2 = () => {
                                 border: "2px solid black",
                                 textAlign: "center",
                             }}
+                            key={e.id}
                         >
                             <h3>{e.title}</h3>
                             <img
@@ -46,7 +67,57 @@ const ProductsBack2 = () => {
                         </div>
                     );
                 })}
+
+
             </div>
+
+            <button onClick={addproduct}>Crear producto</button>
+
+
+
+
+
+
+
+
+
+            {/* <div
+                style={{
+                    backgroundColor: "steelblue",
+                    width: "100%",
+                    padding: "30px",
+                    height: "100px",
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                    marginTop: "50px"
+                }}
+            >
+                <form
+                    action=""
+                    style={{
+                        width: "70%",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "15px",
+                    }}
+                >
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="ingresa el nombre del producto"
+                        style={{ width: "70%", height: "40px" }}
+                    />
+                    <input
+                        type="text"
+                        name="imagen"
+                        placeholder="ingresa la URL de la imagen"
+                        style={{ width: "70%", height: "40px" }}
+                    />
+
+                    <button>Crear Producto</button>
+                </form>
+            </div> */}
         </div>
     );
 };
