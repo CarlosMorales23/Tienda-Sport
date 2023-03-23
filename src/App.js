@@ -7,6 +7,8 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import Loguin from "./components/Loguin/Loguin";
 import NavbarPres from "./components/Navbar/NavbarPres/NavbarPres";
 import NotFound from "./components/NotFound/NotFound";
+import ProductsBack2 from "./components/ProductsBack2/ProductsBack2";
+// import ProductsBack from "./components/ProductsBack2/ProductsBack2";
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
 
                     <Route path="/loguin" element={<Loguin />} />
+
+                    <Route path="/productsBack" element={ <ProductsBack2/> } />
 
                     <Route
                         path="/Item/:id"
