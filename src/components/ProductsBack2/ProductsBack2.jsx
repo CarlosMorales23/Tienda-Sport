@@ -2,35 +2,56 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-
 const ProductsBack2 = () => {
+    const [products, setProducts] = useState([]);
+    const [isCreated, setIsCreated] = useState(false);
+    const [isUpdate, setIsUpdate] = useState(false);
 
-    const [products, setProducts ] = useState ([])
-
-    useEffect ( () => {
+    useEffect(() => {
+        setIsCreated(false);
         //Solicitud a la API
-        const data = axios.get("http://localhost:5000/products")
-            
-        data
-            .then ((res) => setProducts(res.data))
-            // .then((res) => console.log (res))
-            //min 30:24 se hizo la petición a axios, se hizo un then a la res, y a mi me arrojo el array de 6 productos. AL profe los datos del backend. Porque la diferencia?
+        const data = axios.get("http://localhost:5000/products");
 
-    }, [])
+        data.then((res) => setProducts(res.data));
+        // .then((res) => console.log (res))
+        //min 30:24 se hizo la petición a axios, se hizo un then a la res, y a mi me arrojo el array de 6 productos. AL profe los datos del backend. Porque la diferencia?
+    }, [isCreated, isUpdate, setIsUpdate]);
 
-    console.log(products)
+    console.log(products);
 
     const newProduct = {
-        title: "Boca",
+        title: "Nuevo Producto",
         img: "https://media.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/c/a/camiseta-de-boca-adidas-alternativa-blanca-100020gl4171001-1.jpg",
     };
 
-    const addproduct= () =>{
-        axios.post("http://localhost:5000/products", newProduct)
-    }
+    const addproduct = (obj) => {
+        const create = axios.post("http://localhost:5000/products", newProduct);
+        create
+            .then((res) => {
+                console.log(res);
+                setIsCreated(true)
+            })
+            .catch((err) => console.log(err));
+        //Manejar la promesa con axios no es necesario para añadir el producto, pero se puede ver cual fue el resultado de la promesa
+    };
 
+    const updateProduct = (id) => {
+        const update = axios.patch(`http://localhost:5000/products/${id}`, {
+            title: "Boca Juniors",
+        });
+        update.then((res) => {
+            console.log(res);
+            setIsUpdate(true)
+        }).catch((err) => console.log(err));
+        //Manejar la promesa con axios no es necesario para añadir el producto, pero se puede ver cual fue el resultado de la promesa
+    };
 
-
+    const deleteProduct = (id) => {
+        const del = axios.delete(`http://localhost:5000/products/${id}`, {
+            title: "Boca Juniors",
+        });
+        del.then((res) => console.log(res)).catch((err) => console.log(err));
+    };
 
     return (
         <div>
@@ -67,20 +88,23 @@ const ProductsBack2 = () => {
                         </div>
                     );
                 })}
-
-
             </div>
-
+            {/* AGREGAR PRODUCTO */}
             <button onClick={addproduct}>Crear producto</button>
 
+            <br />
+            <br />
+            {/* MODIFICA RUN PRODUCTO */}
+            <button onClick={() => updateProduct("Crrozv9")}>
+                Modificar Prodcuto
+            </button>
 
+            <br />
+            <br />
 
-
-
-
-
-
-
+            <button onClick={() => deleteProduct("--Fz-_w")}>
+                Eliminar Prodcuto
+            </button>
             {/* <div
                 style={{
                     backgroundColor: "steelblue",
