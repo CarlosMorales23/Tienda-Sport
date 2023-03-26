@@ -6,16 +6,20 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import Loguin from "./components/Loguin/Loguin";
 import NavbarPres from "./components/Navbar/NavbarPres/NavbarPres";
 import NotFound from "./components/NotFound/NotFound";
+import CartContextProvaider from "./Contex/CartContext";
 
 function App() {
     return (
-        
-            <BrowserRouter>
+        <BrowserRouter>
+            <CartContextProvaider>
                 <NavbarPres />
                 <Routes>
                     <Route path="/" element={<ItemListContainer />} />
 
-                    <Route path="/category/:categoryId" element={<ItemListContainer />} />
+                    <Route
+                        path="/category/:categoryId"
+                        element={<ItemListContainer />}
+                    />
 
                     <Route path="*" element={<NotFound />} />
 
@@ -25,18 +29,13 @@ function App() {
 
                     <Route path="/formulario" element={<Form />} />
 
-                    <Route
-                        path="/Item/:id"
-                        element={<ItemDetailContainer />}
-                    />
-
-
+                    <Route path="/Item/:id" element={<ItemDetailContainer />} />
                 </Routes>
 
-                {/* <FooterPres/> */}  
+                {/* <FooterPres/> */}
                 {/* //Arreglar en la vista Detail, seguro es falta de contenido*/}
-            </BrowserRouter>
-    
+            </CartContextProvaider>
+        </BrowserRouter>
     );
 }
 
