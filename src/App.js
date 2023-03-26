@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import Form from "./components/Form/Form";
-//Requiere arreglos de estilo para renderizarse bien en el ItemDetail el footer
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import Loguin from "./components/Loguin/Loguin";
