@@ -22,7 +22,11 @@ const ItemDetailContainer = () => {
     //ahora producSelect tendra el objeto del producto del id correspondiente
 
     const onAdd = (cantidad) => {
-        agregarAlCarrito(productSelected)
+        let producto= {
+            ...productSelected, 
+            quantity: cantidad
+        }
+        agregarAlCarrito(producto)
     };
 
     console.log(productSelected);

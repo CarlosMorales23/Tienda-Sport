@@ -4,16 +4,19 @@ import { CartContext } from "../../Contex/CartContext";
 
 
 const Cart = () => {
-    const { cart } = useContext(CartContext);
+    const { cart, clearCart, getTotalPrice } = useContext(CartContext);
+
+    const precioTotal = getTotalPrice()
 
     return (
-        <div>
+        <div style={{width: "100%", display: "flex", justifyContent: "space-evenly", flexWrap: "wrap"}}>
             {
                 cart.map( (elemento)=>{
                     return (
-                        <div>
+                        <div style={{border: "2px solid black"}}>
                             <h2>{elemento.title}</h2>
                             <h3>{elemento.price}</h3>
+                            <h3> Cantidad : {elemento.quantity}</h3>
                             <img
                                 src={elemento.img}
                                 alt=""
@@ -23,6 +26,9 @@ const Cart = () => {
                     );
                 })
             }
+
+            <h1>El total de su compra sera de : {precioTotal}</h1>
+            <button onClick={clearCart}> Limpiar carrito</button>
         </div>
     );
 };

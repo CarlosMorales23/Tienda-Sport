@@ -10,7 +10,9 @@ import { CartContext } from "../../../Contex/CartContext";
 
 const CartWidget = () => {
 
-    const {cart} = useContext(CartContext)
+    const { getTotalQuantity} = useContext(CartContext)
+
+    const total = getTotalQuantity()
 
     console.log()
     return (
@@ -23,7 +25,7 @@ const CartWidget = () => {
                             className={styles.contador}
                             style={{ textDecoration: "none" }}
                         >
-                            {cart.length}
+                            {total}
                         </h3>
                     </div>
                     <div className={styles.carrito}>
