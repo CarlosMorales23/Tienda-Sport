@@ -11,7 +11,7 @@ import CartContextProvaider from "./Contex/CartContext";
 function App() {
     return (
         <BrowserRouter>
-            <CartContextProvaider>
+            <CartContextProvaider >
                 <NavbarPres />
                 <Routes>
                     <Route path="/" element={<ItemListContainer />} />

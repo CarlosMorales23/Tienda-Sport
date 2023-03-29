@@ -16,7 +16,8 @@ const Form = () => {
     // VALIDACIONES
     // name----------- minimo 15 caracteres
     // email ---------contenga un @
-    // password ------ no espacios en blanco
+    // password ------ no espacios en blanco.   que son expresiones regulares? que dice el profe se pueden usar
+    //Estaria bueno hacer validaciones OnBlur
 
     const handleSubmit = (e) => {
         e.preventDefault();

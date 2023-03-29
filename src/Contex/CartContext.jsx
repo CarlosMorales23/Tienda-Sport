@@ -11,14 +11,22 @@ const CartContextProvaider = ({ children }) => {
     
     const [cart, setCart] = useState([])
     
+    const agregarAlCarrito = (producto)=>{
+        setCart([...cart, producto])
+    }
+
+
+
     // AGREGAR
     // ELIMINAR
     // CONTAR
     // TOTAL DEL PRECIO DEL CARRITO
     
     let data ={
-        cart: cart,
-        setCart: setCart,
+        cart,
+        agregarAlCarrito
+        // setCart: setCart,
+        // cuando la propiedad y su valor se llaman igual pueo omitir el valor
 
     }
 
