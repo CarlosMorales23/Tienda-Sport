@@ -16,6 +16,11 @@ const ItemListContainer = () => {
     const productsFiltrados = products.filter( (elemento)=> elemento.category === categoryId )
 
     useEffect ( ()=>{
+
+        const productsFiltrados = products.filter(
+            (elemento) => elemento.category === categoryId
+        );
+        
         const productList = new Promise((resolve, reject)=>{
             resolve (categoryId ? productsFiltrados : products)
             // reject("No tienes autorización")

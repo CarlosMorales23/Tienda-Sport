@@ -4,10 +4,17 @@ import styles from "./CartWidget.module.css";
 
 import { Link } from "react-router-dom";
 
+import { useContext } from "react";
+import { CartContext } from "../../../Contex/CartContext";
+
+
 const CartWidget = () => {
 
-    
+    const { getTotalQuantity} = useContext(CartContext)
 
+    const total = getTotalQuantity()
+
+    console.log()
     return (
         <div>
             <Link to="/cart" style={{ textDecoration: "none" }}>
@@ -18,7 +25,7 @@ const CartWidget = () => {
                             className={styles.contador}
                             style={{ textDecoration: "none" }}
                         >
-                            0
+                            {total}
                         </h3>
                     </div>
                     <div className={styles.carrito}>
