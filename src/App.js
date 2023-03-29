@@ -41,11 +41,3 @@ function App() {
 
 export default App;
 
-// const onAdd = (cantidad) =>{
-//     alert(`Se agrego al carrito ${cantidad} elementos`);
-// }
-
-// <NavbarPres />
-// <ItemListContainer saludo="Pepito Romero" />
-// <ConsumiendoApis/>
-// <FooterPres/>

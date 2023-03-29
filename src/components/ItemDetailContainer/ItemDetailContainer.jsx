@@ -29,7 +29,6 @@ const ItemDetailContainer = () => {
         agregarAlCarrito(producto)
     };
 
-    console.log(productSelected);
     return (
         <div>
             <h1>{productSelected.title}</h1>

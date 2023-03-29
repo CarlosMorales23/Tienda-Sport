@@ -31,8 +31,6 @@ const ItemListContainer = () => {
         .catch ((error) =>{console.log(error)})
     }, [categoryId])
 
-    console.log(items)
-
 
     return(
             <div>
@@ -45,66 +43,3 @@ const ItemListContainer = () => {
 
 
 export default ItemListContainer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const ItemListContainer = ({ greeting }) => {
-//     const [nombre, setNombre] = useState("Pepito");
-//     const [userName, setUserName] = useState("Juancito");
-
-//     const cambiarNombreMaria = () => {
-//         setNombre("Maria");
-//     };
-
-//     const cambiarNombrePepito = () => {
-//         setNombre("Pepito");
-//     };
-
-//     useEffect(() => {
-//         console.log("Me ejecute una soloa vez");
-//     }, []);
-
-//     useEffect (() => {
-//         const productList = new Promise ((resolve, reject) =>{
-//             resolve("pepito")
-//             reject ("La solicitud no pudo ser completada")
-//         });
-
-//         productList
-//         .then( (res) =>{ setUserName(res)})
-//         .catch( (error) => {console.log(error)})
-//     }, [])
-
-//     console.log(userName)
-
-//     return (
-//         <div>
-//             <h1>Buenos dias {nombre}</h1>
-//             <Stack spacing={2} direction="row">
-//                 <Button variant="contained" onClick={cambiarNombreMaria}>
-//                     Cambiar a Maria
-//                 </Button>
-//                 <Button variant="contained" onClick={cambiarNombrePepito}>
-//                     Cambiar a Pepito
-//                 </Button>
-//             </Stack>
-//         </div>
-//     );
-// };
-
-
-
-
-  // useEffect(() => {
-    //     console.log("Me ejecute cada vez que cambia contador");
-    // }, [contador]);

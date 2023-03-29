@@ -14,7 +14,6 @@ const CartWidget = () => {
 
     const total = getTotalQuantity()
 
-    console.log()
     return (
         <div>
             <Link to="/cart" style={{ textDecoration: "none" }}>
