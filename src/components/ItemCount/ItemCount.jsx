@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useState } from "react";
@@ -6,6 +6,10 @@ import { useState } from "react";
 
 const ItemCount = ({stock, initial=1, onAdd}) => {
     const [contador, setContador] = useState(initial);
+
+    useEffect(()=>{
+        setContador(initial);
+    }, [initial])
 
     const sumar = () => {
         
