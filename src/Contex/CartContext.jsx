@@ -13,7 +13,7 @@ const CartContextProvaider = ({ children }) => {
                 if (elemento.id === producto.id) {
                     return {
                         ...elemento,
-                        quantity: elemento.quantity + producto.quantity,
+                        quantity: producto.quantity,
                     };
                 } else {
                     return elemento;
@@ -50,8 +50,17 @@ const CartContextProvaider = ({ children }) => {
     };
 
     const deleteProductById = (id) => {
+        const newCart = cart.filter((elemento)=>elemento.id !== id);
+
+        setCart(newCart);
+        
         console.log(id);
     };
+
+    const getQuantityById = (id) => {
+        const productoSeleccionado = cart.find((elemento)=>elemento.id === id)
+        return productoSeleccionado?.quantity
+    }
 
     let data = {
         cart,
@@ -60,6 +69,7 @@ const CartContextProvaider = ({ children }) => {
         getTotalQuantity,
         getTotalPrice,
         deleteProductById,
+        getQuantityById
         // setCart: setCart,
         // cuando la propiedad y su valor se llaman igual pueo omitir el valor
     };

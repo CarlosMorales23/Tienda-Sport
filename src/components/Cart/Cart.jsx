@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../Contex/CartContext";
 
 const Cart = () => {
-    const { cart, clearCart, getTotalPrice, deletProductById } = useContext(CartContext);
+    const { cart, clearCart, getTotalPrice, deleteProductById } = useContext(CartContext);
 
     const precioTotal = getTotalPrice();
 
@@ -29,7 +29,7 @@ const Cart = () => {
                         <Button
                             variant="contained"
                             style={{ margin: "15px" }}
-                            onClick={ ()=> deletProductById(elemento.id)}
+                            onClick={ ()=> deleteProductById(elemento.id)}
                         >
                             Eliminar
                         </Button>
