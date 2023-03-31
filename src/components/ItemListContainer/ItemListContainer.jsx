@@ -5,41 +5,55 @@ import { useParams } from "react-router-dom";
 import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
 
-
-
 const ItemListContainer = () => {
+    const { categoryId } = useParams();
 
-    const {categoryId} = useParams();
+    const [items, setItems] = useState([]);
 
-    const [items, setItems] = useState([])
+    const productsFiltrados = products.filter(
+        (elemento) => elemento.category === categoryId
+    );
 
-    const productsFiltrados = products.filter( (elemento)=> elemento.category === categoryId )
-
-    useEffect ( ()=>{
-
-        const productsFiltrados = products.filter(
-            (elemento) => elemento.category === categoryId
-        );
-        
-        const productList = new Promise((resolve, reject)=>{
-            resolve (categoryId ? productsFiltrados : products)
+    useEffect(() => {
+        const productList = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(categoryId ? productsFiltrados : products);
+            }, 500)
+            
             // reject("No tienes autorización")
-        })
+        });
 
         productList
-        .then ((res)=>{setItems(res)})
-        .catch ((error) =>{console.log(error)})
-    }, [categoryId])
+            .then((res) => {
+                setItems(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [categoryId]);
 
 
-    return(
-            <div>
-                <ItemList items={items}/>
-            </div>
-    )
+
+    // if(items.length===0){
+    //     return <h1>Cargando........!!!!!</h1>
+    // }
 
 
-}
 
+
+    return (
+        <div>
+            {
+                // <div>{items.length > 0 && <ItemList items={items} />}</div>;
+
+                items.length > 0 ? (
+                    <ItemList items={items} />
+                ) : (
+                    <h1>Cargando........!!!!!</h1>
+                )
+            }
+        </div>
+    );
+};
 
 export default ItemListContainer;
