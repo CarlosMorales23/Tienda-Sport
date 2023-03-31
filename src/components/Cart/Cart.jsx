@@ -1,11 +1,34 @@
 import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { CartContext } from "../../Contex/CartContext";
+import Swal from "sweetalert2";
 
 const Cart = () => {
     const { cart, clearCart, getTotalPrice, deleteProductById } = useContext(CartContext);
 
     const precioTotal = getTotalPrice();
+
+    const clear = () => {
+
+        Swal.fire({
+            title: "Seguro que quieres borrar todos los productos del carrito?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Si, vaciar",
+            denyButtonText: `No, no vaciar`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("Carrito borrado exitosamente!", "", "success");
+                clearCart();
+            } else if (result.isDenied) {
+                Swal.fire("Ok, no se borrara su carrito", "", "info");
+            }
+        });
+
+        
+    }
+
+
 
     return (
         <div
@@ -29,16 +52,17 @@ const Cart = () => {
                         <Button
                             variant="contained"
                             style={{ margin: "15px" }}
-                            onClick={ ()=> deleteProductById(elemento.id)}
+                            onClick={() => deleteProductById(elemento.id)}
                         >
                             Eliminar
                         </Button>
                     </div>
                 );
             })}
-
-            <h1>El total de su compra sera de : {precioTotal}</h1>
-            <button onClick={clearCart}> Limpiar carrito</button>
+            <h1>El total de su compra sera de : {precioTotal}</h1>´
+            {cart.length > 0 && (
+                <button onClick={clear}> Vaciar carrito</button>
+            )}
         </div>
     );
 };

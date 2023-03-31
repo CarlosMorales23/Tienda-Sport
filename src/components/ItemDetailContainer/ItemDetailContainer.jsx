@@ -6,6 +6,7 @@ import { CartContext } from "../../Contex/CartContext";
 import { products } from "../../productsMock";
 
 import ItemCount from "../ItemCount/ItemCount";
+import Swal from "sweetalert2";
 
 const ItemDetailContainer = () => {
     // const parametros = useParams();
@@ -26,8 +27,17 @@ const ItemDetailContainer = () => {
             ...productSelected, 
             quantity: cantidad
         }
-        agregarAlCarrito(producto)
-    };
+        agregarAlCarrito(producto);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Estas a un solo paso de que sea tuya!!! vamos a Pagar",
+            showConfirmButton: false,
+            timer: 2000,
+        });
+
+    }
+
 
     let quantity = getQuantityById(Number(id))
     console.log(quantity)
