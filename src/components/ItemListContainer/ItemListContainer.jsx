@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
-import { BounceLoader } from "react-spinners";
-import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
 
