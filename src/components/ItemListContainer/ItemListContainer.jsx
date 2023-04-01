@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
 import CircularProgress from '@mui/material/CircularProgress';
+import {db} from "../../firebaseConfig";
+
+import { collection, getDocs } from "firebase/firestore"
 
 
 
@@ -33,6 +36,11 @@ const ItemListContainer = () => {
             .catch((error) => {
                 console.log(error);
             });
+
+        // const itemsCollection = collection(db, products)
+        // getDocs (itemsCollection)
+        //     .then((res) =>console.log(res));
+
     }, [categoryId]);
 
     // if(items.length===0){
