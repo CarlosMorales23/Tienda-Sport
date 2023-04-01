@@ -30,16 +30,5 @@ const NavbarPres = () => {
 
 export default NavbarPres;
 
-            // <Grid container spacing={12}>
-            //     <Grid item xs={4} md={4}>
-            //         <Logo />
-            //     </Grid>
-            //     <Grid item xs={4} md={4}>
-            //         <Menu />
-            //     </Grid>
-            //     <Grid item xs={4} md={4}>
-            //         <CartWidget />
-            //     </Grid>
-            // </Grid>;
 
 
