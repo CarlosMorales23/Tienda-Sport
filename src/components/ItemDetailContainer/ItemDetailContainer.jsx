@@ -1,32 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../Contex/CartContext";
 
-import { products } from "../../productsMock";
+// import { products } from "../../productsMock";
+import { getDoc, collection, doc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 import ItemCount from "../ItemCount/ItemCount";
 import Swal from "sweetalert2";
 
 const ItemDetailContainer = () => {
-    // const parametros = useParams();
     const { id } = useParams();
-    // useParams sera un objeto, que en este caso retorna el id de la ruta segun el producto seleccionado, debido a como renderice en app.js al componente ItemDetail
-    //
 
-    const {agregarAlCarrito, getQuantityById} = useContext (CartContext)
+    const { agregarAlCarrito, getQuantityById } = useContext(CartContext);
 
-    //el id que viene desde la ruta llega como string por lo cual haya que pasarlo a numero para poder compararlo con el element.id
-    const productSelected = products.find(
-        (element) => element.id === Number(id)
-    );
-    //ahora producSelect tendra el objeto del producto del id correspondiente
+    const [productSelected, setProductSelected] = useState({});
+
+    useEffect(() => {
+        const itemCollection = collection(db, "products")
+        const ref= doc(itemCollection, id)
+        getDoc(ref)
+            .then(res => {
+                setProductSelected({
+                    ...res.data(),
+                    id: res.id
+                })
+            })
+    }, [id]);
 
     const onAdd = (cantidad) => {
-        let producto= {
-            ...productSelected, 
-            quantity: cantidad
-        }
+        let producto = {
+            ...productSelected,
+            quantity: cantidad,
+        };
         agregarAlCarrito(producto);
         Swal.fire({
             position: "center",
@@ -35,18 +42,20 @@ const ItemDetailContainer = () => {
             showConfirmButton: false,
             timer: 2000,
         });
+    };
 
-    }
-
-
-    let quantity = getQuantityById(Number(id))
-    console.log(quantity)
+    let quantity = getQuantityById(Number(id));
+    console.log(quantity);
 
     return (
         <div>
             <h1>{productSelected.title}</h1>
             <img src={productSelected.img} alt="" style={{ width: 200 }} />
-            <ItemCount stock={productSelected.stock} onAdd={onAdd} initial={quantity}/>
+            <ItemCount
+                stock={productSelected.stock}
+                onAdd={onAdd}
+                initial={quantity}
+            />
         </div>
     );
 };

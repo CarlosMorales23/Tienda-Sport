@@ -2,53 +2,59 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../productsMock";
+// import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
-import CircularProgress from '@mui/material/CircularProgress';
-import {db} from "../../firebaseConfig";
+import CircularProgress from "@mui/material/CircularProgress";
 
-import { collection, getDocs } from "firebase/firestore"
-
-
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+import { products } from "../../productsMock";
 
 const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     const [items, setItems] = useState([]);
 
-    const productsFiltrados = products.filter(
-        (elemento) => elemento.category === categoryId
-    );
+    // const productsFiltrados = products.filter(
+    //     (elemento) => elemento.category === categoryId
+    // );
 
     useEffect(() => {
-        const productList = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(categoryId ? productsFiltrados : products);
-            }, 1500);
+        const itemsCollection = collection(db, "products");
 
-            // reject("No tienes autorización")
-        });
+        let consulta = undefined
 
-        productList
-            .then((res) => {
-                setItems(res);
+        if (categoryId){
+            const q = query (itemsCollection, where("category", "==", categoryId))
+            consulta = getDocs(q)
+        }else{
+            consulta = getDocs(itemsCollection)
+        }
+
+        consulta.then((res) =>{
+            let products = res.docs.map ((product) =>{
+                return{
+                    ...product.data(),
+                    id: product.id
+                }
             })
-            .catch((error) => {
-                console.log(error);
-            });
+            setItems(products);
+        })
 
-        // const itemsCollection = collection(db, products)
-        // getDocs (itemsCollection)
-        //     .then((res) =>console.log(res));
+        
+    
+    
+    })
 
-    }, [categoryId]);
-
-    // if(items.length===0){
-    //     return <h1>Cargando........!!!!!</h1>
-    // }
 
     return (
-        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             {
                 // <div>{items.length > 0 && <ItemList items={items} />}</div>;
 
@@ -57,10 +63,26 @@ const ItemListContainer = () => {
                 ) : (
                     // <h1>Cargando........!!!!!</h1>
 
-                    <div style={{display:"flex", justifyContent:"center", alignContent:"center", marginTop:"500 px"}}>
-                        <CircularProgress color="secondary" style={{margin:"100px"}}/>
-                        <CircularProgress color="success"  style={{margin:"100px"}}/>
-                        <CircularProgress color="inherit"  style={{margin:"100px"}}/>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignContent: "center",
+                            marginTop: "500 px",
+                        }}
+                    >
+                        <CircularProgress
+                            color="secondary"
+                            style={{ margin: "100px" }}
+                        />
+                        <CircularProgress
+                            color="success"
+                            style={{ margin: "100px" }}
+                        />
+                        <CircularProgress
+                            color="inherit"
+                            style={{ margin: "100px" }}
+                        />
                     </div>
                 )
             }

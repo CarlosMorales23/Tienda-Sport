@@ -1,27 +1,41 @@
 import { Button, Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import styles from "./Menu.module.css"
-
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
 
 const Menu = () => {
+    const [categoryList, setcategoryList] = useState([]);
+
+    useEffect(() => {
+        const itemsCollection = collection(db, "categories");
+        getDocs(itemsCollection).then((res) => {
+            let arrayCategories = res.docs.map((category) => {
+                return {
+                    ...category.data(),
+                    id: category.id,
+                };
+            });
+            setcategoryList(arrayCategories);
+        });
+    }, []);
+
     return (
-        <Stack spacing={4} direction="row">
-            <Link to="/" style={{ textDecoration: "none" }}>
-                <Button variant="contained">Todas</Button>
-            </Link>
-            <Link to="/category/Futbol" style={{ textDecoration: "none" }}>
-                <Button variant="contained">Futbol</Button>
-            </Link>
-            <Link to="/category/Beisbol" style={{ textDecoration: "none" }}>
-                <Button variant="contained">Beisbol</Button>
-            </Link>
-            <Link to="/category/Basket" style={{ textDecoration: "none" }}>
-                <Button variant="contained">Basket</Button>
-            </Link>
-        </Stack>
+        <ul>
+            {categoryList.map((category) => {
+                return (
+                    <Link
+                        key={category.id}
+                        to={category.path}
+                        style={{ margin: "20px" }}
+                    >
+                        {category.title}
+                    </Link>
+                );
+            })}
+        </ul>
     );
 };
 
 export default Menu;
-
