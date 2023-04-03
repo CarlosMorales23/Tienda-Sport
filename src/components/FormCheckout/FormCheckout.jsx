@@ -14,6 +14,7 @@ const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
     console.log(userData)
 
 
+    
 
     let total= getTotalPrice()
 
