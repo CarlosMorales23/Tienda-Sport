@@ -4,12 +4,12 @@ import {getFirestore} from "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAszcifq9vEwKvwLzXMyMvxUjuT4zU8vH4",
-    authDomain: "tiendasport-c49b8.firebaseapp.com",
-    projectId: "tiendasport-c49b8",
-    storageBucket: "tiendasport-c49b8.appspot.com",
-    messagingSenderId: "494142689831",
-    appId: "1:494142689831:web:430c8661236558c2e1b402",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 // Initialize Firebase
