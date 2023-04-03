@@ -16,7 +16,7 @@ const ItemList = ({items}) => {
             {
                 items.map( (element) =>{
 
-                    return <Item key={element.id} element={element}/>
+                    return <Item key={element.id} producto={element}/>
                 })
             }
         </div>
@@ -24,8 +24,3 @@ const ItemList = ({items}) => {
 };
 
 export default ItemList;
-
-
-// 1. Item. La info que llevara la tarjeta
-// 2. ItemList El agrupador de los item. Va dentro de la carpeta ItemListContaine. 
-// 3. async mock 

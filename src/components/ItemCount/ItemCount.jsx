@@ -11,7 +11,6 @@ const ItemCount = ({stock, initial=1, onAdd}) => {
     }, [initial])
 
     const sumar = () => {
-        
         if (contador < stock){
             setContador(contador + 1);
         }
@@ -25,7 +24,6 @@ const ItemCount = ({stock, initial=1, onAdd}) => {
 
     return (
         <div>
-            <h1>Estoy en el Item Count</h1>
             <h2>{contador}</h2>
             <Stack spacing={2} direction="row">
                 <Button variant="contained" onClick={sumar}>
