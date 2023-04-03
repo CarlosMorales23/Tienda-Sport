@@ -3,12 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../Contex/CartContext";
 
-// import { products } from "../../productsMock";
 import { getDoc, collection, doc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 
-import ItemCount from "../ItemCount/ItemCount";
 import Swal from "sweetalert2";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -49,13 +48,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            <h1>{productSelected.title}</h1>
-            <img src={productSelected.img} alt="" style={{ width: 200 }} />
-            <ItemCount
-                stock={productSelected.stock}
-                onAdd={onAdd}
-                initial={quantity}
-            />
+            <ItemDetail productSelected={productSelected} onAdd={onAdd} quantity={quantity}></ItemDetail>
         </div>
     );
 };
