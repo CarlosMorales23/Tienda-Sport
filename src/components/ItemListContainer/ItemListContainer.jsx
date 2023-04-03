@@ -8,16 +8,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
-import { products } from "../../productsMock";
 
 const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     const [items, setItems] = useState([]);
-
-    // const productsFiltrados = products.filter(
-    //     (elemento) => elemento.category === categoryId
-    // );
 
     useEffect(() => {
         const itemsCollection = collection(db, "products");
