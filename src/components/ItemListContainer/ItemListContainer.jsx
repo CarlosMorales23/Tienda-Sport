@@ -33,10 +33,6 @@ const ItemListContainer = () => {
             })
             setItems(products);
         })
-
-        
-    
-    
     })
 
 
@@ -54,8 +50,6 @@ const ItemListContainer = () => {
                 items.length > 0 ? (
                     <ItemList items={items} />
                 ) : (
-                    // <h1>Cargando........!!!!!</h1>
-
                     <div
                         style={{
                             display: "flex",
