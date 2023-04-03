@@ -13,9 +13,6 @@ const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
 
     console.log(userData)
 
-
-    
-
     let total= getTotalPrice()
 
     const handleSubmit = (e) =>{
@@ -42,8 +39,6 @@ const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
         })
 
     }
-
-
 
     return (
         <div>
