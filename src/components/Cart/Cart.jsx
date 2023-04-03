@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { CartContext } from "../../Contex/CartContext";
 import Swal from "sweetalert2";
 import FormCheckout from "../FormCheckout/FormCheckout";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const { cart, clearCart, getTotalPrice, deleteProductById } = useContext(CartContext);
@@ -38,7 +39,7 @@ const Cart = () => {
             <div>
                 <h4>Gracias por tu compra</h4>
                 <h4>El comprobante de su compra es : {orderId}</h4>
-                
+                <Link to="/">Seguir Comprando</Link>
             
             </div>
 

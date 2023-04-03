@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 
 const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
@@ -34,6 +34,10 @@ const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
             })
             .catch(err => console.log(err))
         
+        cart.map((product) => {
+            let refDoc = doc (db, "products", product.id)
+            updateDoc(refDoc, {stock: product.stock - product.quantity})
+        })
 
     }
 
