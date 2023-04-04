@@ -19,10 +19,7 @@ const Item = ({element}) => {
                     {element.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {element.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {element.price}
+                    Precio. {element.price}
                 </Typography>
             </CardContent>
             <CardActions>
