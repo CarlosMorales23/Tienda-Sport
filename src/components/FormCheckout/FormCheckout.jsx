@@ -3,42 +3,76 @@ import React, { useState } from "react";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 
-const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
-
+const FormCheckout = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
     const [userData, setUserData] = useState({
-        name:"",
-        email:"",
-        phone:""
-    })
+        name: "",
+        email: "",
+        phone: "",
+        nameAgain: "",
+        emailAgain: "",
+        phoneAgain: "",
+    });
 
-    console.log(userData)
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
-    let total= getTotalPrice()
+    const handleChange = (e) => {
+        setUserData({ ...userData, [e.target.name]: e.target.value });
+    };
+    console.log(userData);
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
+    let total = getTotalPrice();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (userData.name !== userData.nameAgain) {
+            setError(true);
+            setErrorMessage(
+                "Los campos Nombres son diferentes, deben ser iguales"
+            );
+            return;
+        }
+
+        if (userData.apellido !== userData.apellidoAgain) {
+            setError(true);
+            setErrorMessage(
+                "Los campos Apellidos son diferentes, deben ser iguales"
+            );
+            return;
+        }
+
+        if (userData.phone !== userData.phoneAgain) {
+            setError(true);
+            setErrorMessage(
+                "Los campos Telefono son diferentes, deben ser iguales"
+            );
+            return;
+        }
 
         let order = {
             buyer: userData,
             items: cart,
-            total
-        }
+            total,
+        };
 
-        let orderCollection = collection( db, "orders")
+        let orderCollection = collection(db, "orders");
         addDoc(orderCollection, order)
-            .then(res => {
+            .then((res) => {
                 setOrderId(res.id);
-                clearCart()
+                clearCart();
             })
-            .catch(err => console.log(err))
-        
-        cart.map((product) => {
-            let refDoc = doc (db, "products", product.id)
-            updateDoc(refDoc, {stock: product.stock - product.quantity});
-            return product
-        })
+            .catch((err) => console.log(err));
 
-    }
+        cart.map((product) => {
+            let refDoc = doc(db, "products", product.id);
+            updateDoc(refDoc, { stock: product.stock - product.quantity });
+            return product;
+        });
+    };
+
+    //  Al ingresar su NOMBRE, APELLIDO, TELEFONO e E-MAIL (ingresándolo dos veces para
+    // corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
 
     return (
         <div>
@@ -47,34 +81,88 @@ const FormCheckout = ({cart, getTotalPrice, setOrderId, clearCart}) => {
                     type="text"
                     placeholder="Nombre"
                     value={userData.name}
-                    onChange={(e) =>
-                        setUserData({ ...userData, name: e.target.value })
-                    }
+                    name="name"
+                    onChange={handleChange}
                 />
                 <br />
                 <br />
+
                 <input
                     type="text"
+                    placeholder="Escribe de nuevo tu nombre"
+                    value={userData.nameAgain}
+                    name="nameAgain"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+
+                <input
+                    type="text"
+                    placeholder="Apellido"
+                    value={userData.apellido}
+                    name="apellido"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+
+                <input
+                    type="text"
+                    placeholder="Escribe de nuevo tu apellido"
+                    value={userData.apellidoAgain}
+                    name="apellidoAgain"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+
+                <input
+                    type="email"
                     placeholder="Email"
                     value={userData.email}
-                    onChange={(e) =>
-                        setUserData({ ...userData, email: e.target.value })
-                    }
+                    name="email"
+                    onChange={handleChange}
                 />
                 <br />
                 <br />
+
                 <input
-                    type="text"
+                    type="email"
+                    placeholder="Escribe de nuevo tu Email"
+                    value={userData.emailAgain}
+                    name="emailAgain"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+
+                <input
+                    type="number"
                     placeholder="Telefono"
                     value={userData.phone}
-                    onChange={(e) =>
-                        setUserData({ ...userData, phone: e.target.value })
-                    }
+                    name="phone"
+                    onChange={handleChange}
                 />
+                <br />
+                <br />
+
+                <input
+                    type="number"
+                    placeholder="Escribe de nuevo tu Telefono"
+                    value={userData.phoneAgain}
+                    name="phoneAgain"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+
                 <Button type="submit" variant="contained">
                     Comprar
                 </Button>
             </form>
+
+            {error && <h6>{errorMessage}</h6>}
         </div>
     );
 };
