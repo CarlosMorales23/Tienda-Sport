@@ -33,7 +33,7 @@ const ItemListContainer = () => {
             })
             setItems(products);
         })
-    })
+    },[categoryId])
 
 
     return (
