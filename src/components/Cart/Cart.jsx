@@ -15,7 +15,6 @@ const Cart = () => {
     const [orderId, setOrderId] = useState(null)
 
     const clear = () => {
-
         Swal.fire({
             title: "Seguro que quieres borrar todos los productos del carrito?",
             showDenyButton: true,
@@ -30,8 +29,6 @@ const Cart = () => {
                 Swal.fire("Ok, no se borrara su carrito", "", "info");
             }
         });
-
-        
     }
 
     if (orderId){
@@ -40,14 +37,9 @@ const Cart = () => {
                 <h4>Gracias por tu compra</h4>
                 <h4>El comprobante de su compra es : {orderId}</h4>
                 <Link to="/">Seguir Comprando</Link>
-            
             </div>
-
-
         );
     }
-
-
 
     return (
         <div>
@@ -102,14 +94,6 @@ const Cart = () => {
             )}
         </div>
     );
-
-
-    
-
-
-
-
-
 };
 
 export default Cart;

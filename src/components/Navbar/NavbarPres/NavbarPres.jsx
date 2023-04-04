@@ -23,7 +23,6 @@ const NavbarPres = () => {
             <Logo />
             <Menu />
             <CartWidget/>
-
         </Box>
     );
 };

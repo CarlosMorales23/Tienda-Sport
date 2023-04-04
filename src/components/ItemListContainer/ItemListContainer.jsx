@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import CircularProgress from "@mui/material/CircularProgress";
 
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
+import Cargando from "../../common/Cargando";
 
 const ItemListContainer = () => {
     const { categoryId } = useParams();
@@ -32,11 +32,8 @@ const ItemListContainer = () => {
                 }
             })
             setItems(products);
-        }, [categoryId])
+        })
 
-        
-    
-    
     },[categoryId])
 
 
@@ -49,34 +46,10 @@ const ItemListContainer = () => {
             }}
         >
             {
-                // <div>{items.length > 0 && <ItemList items={items} />}</div>;
-
                 items.length > 0 ? (
                     <ItemList items={items} />
                 ) : (
-                    // <h1>Cargando........!!!!!</h1>
-
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            marginTop: "500 px",
-                        }}
-                    >
-                        <CircularProgress
-                            color="secondary"
-                            style={{ margin: "100px" }}
-                        />
-                        <CircularProgress
-                            color="success"
-                            style={{ margin: "100px" }}
-                        />
-                        <CircularProgress
-                            color="inherit"
-                            style={{ margin: "100px" }}
-                        />
-                    </div>
+                    <Cargando/>
                 )
             }
         </div>
