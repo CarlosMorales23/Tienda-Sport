@@ -13,6 +13,7 @@ const FormCheckout = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
         phoneAgain: "",
     });
 
+    
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
