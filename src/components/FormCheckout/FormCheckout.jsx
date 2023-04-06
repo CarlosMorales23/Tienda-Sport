@@ -13,7 +13,7 @@ const FormCheckout = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
         phoneAgain: "",
     });
 
-    
+
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -42,6 +42,16 @@ const FormCheckout = ({ cart, getTotalPrice, setOrderId, clearCart }) => {
             );
             return;
         }
+
+        
+        if (userData.email !== userData.emailAgain) {
+            setError(true);
+            setErrorMessage(
+                "Los campos Email son diferentes, deben ser iguales"
+            );
+            return;
+        }
+
 
         if (userData.phone !== userData.phoneAgain) {
             setError(true);
