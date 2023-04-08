@@ -31,7 +31,7 @@ const Menu = () => {
                             margin: "20px",
                             border: "1px solid blue",
                             borderRadius: "5px",
-                            backgroundColor: "navy",
+                            backgroundColor: "darkBlue",
                             color: "white",
                             padding: "12px",
                             textDecoration: "none"
