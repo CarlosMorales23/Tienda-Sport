@@ -26,7 +26,6 @@ const CartContextProvaider = ({ children }) => {
         }
     };
 
-
     const isInCart = (id) => {
         return cart.some((element) => element.id === id);
     };

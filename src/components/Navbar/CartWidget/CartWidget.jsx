@@ -26,7 +26,7 @@ const CartWidget = () => {
                         </h3>
                     </div>
                     <div className={styles.carrito}>
-                        <ShoppingCartIcon sx={{ fontSize: 40 }} />
+                        <ShoppingCartIcon sx={{ fontSize: 40, color: "navy" }} />
                     </div>
                 </div>
             </Link>
