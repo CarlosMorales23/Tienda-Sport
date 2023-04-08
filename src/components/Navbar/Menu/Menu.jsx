@@ -21,13 +21,21 @@ const Menu = () => {
     }, []);
 
     return (
-        <ul>
+        <ul style={{listStyleType: "none"}}>
             {categoryList.map((category) => {
                 return (
                     <Link
                         key={category.id}
                         to={category.path}
-                        style={{ margin: "20px" }}
+                        style={{
+                            margin: "20px",
+                            border: "1px solid blue",
+                            borderRadius: "5px",
+                            backgroundColor: "navy",
+                            color: "white",
+                            padding: "12px",
+                            textDecoration: "none"
+                        }}
                     >
                         {category.title}
                     </Link>
