@@ -10,10 +10,13 @@ git clone https://github.com/CarlosMorales23/Tienda-Sport.git
 
 - React router
 
-- Sweet Alert 2
+- [Sweet Alert 2](https://www.npmjs.com/package/sweetalert2), fue utilizado para crear mesnajes agradables para el usuario, cuando este logra realizar alguna acción relevante como agregar articulos al carrito. 
 
-- Material UI
+- [Material UI](https://mui.com/), fue utilizado para agregar estilos visuales a las tarjetas de los productos. 
 
+
+### El logo de la Eccomerce es el siguiente:
 !["Logo de la Ecommerce"](https://res.cloudinary.com/dybsirwia/image/upload/v1677811224/E-commerce/i_lr7dus.png)
 
-[ir a google](https://www.google.com.ar/)
+
+[Ir a la web nuestra Ecommerce](https://tienda-sport.vercel.app/)
