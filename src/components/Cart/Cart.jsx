@@ -35,8 +35,16 @@ const Cart = () => {
         return (
             <div>
                 <h4>Gracias por tu compra</h4>
-                <h4>El comprobante de su compra es : {orderId}</h4>
-                <Link to="/">Seguir Comprando</Link>
+
+                <h4>Compraste los siguientes productos: </h4>
+                {/*! Falta Mapear la orderId, porque los datos se pierden cuando se borra el carrit */}
+
+                <h4>El comprobante de su compra es : {orderId} </h4>
+
+                <h4>El total de su compra fue por {precioTotal}</h4>
+                {/*! Falta Mapear la orderId, porque los datos se pierden cuando se borra el carrit */}
+
+                <Link to="/"> Seguir Comprando </Link>
             </div>
         );
     }

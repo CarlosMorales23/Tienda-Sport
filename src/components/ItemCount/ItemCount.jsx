@@ -26,6 +26,7 @@ const ItemCount = ({stock, initial=1, onAdd}) => {
     return (
         <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
             <h2>Cantidad: {contador}</h2>
+            <h3>({stock} disponibles)</h3>
             <Stack spacing={2} direction="row">
                 <Button variant="contained" onClick={sumar}>
                     +
