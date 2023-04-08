@@ -24,18 +24,19 @@ const ItemCount = ({stock, initial=1, onAdd}) => {
     };
 
     return (
-        <div>
-            <h1>Estoy en el Item Count</h1>
-            <h2>{contador}</h2>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+            <h2>Cantidad: {contador}</h2>
             <Stack spacing={2} direction="row">
                 <Button variant="contained" onClick={sumar}>
-                    Sumar
+                    +
                 </Button>
-                <Button variant="contained" onClick={restar}>
-                    Restar
-                </Button>
-                <Button variant="contained" onClick={()=>onAdd(contador)}>
+
+                <Button variant="contained" onClick={() => onAdd(contador)}>
                     Agregar
+                </Button>
+
+                <Button variant="contained" onClick={restar}>
+                    -
                 </Button>
             </Stack>
         </div>
