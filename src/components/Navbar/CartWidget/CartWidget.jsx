@@ -20,13 +20,15 @@ const CartWidget = () => {
                         {/* classname="bubble-counter" */}
                         <h3
                             className={styles.contador}
-                            style={{ textDecoration: "none" }}
+                            style={{ textDecoration: "none", color: "navy" }}
                         >
                             {total}
                         </h3>
                     </div>
                     <div className={styles.carrito}>
-                        <ShoppingCartIcon sx={{ fontSize: 40, color: "navy" }} />
+                        <ShoppingCartIcon
+                            sx={{ fontSize: 40, color: "navy" }}
+                        />
                     </div>
                 </div>
             </Link>
